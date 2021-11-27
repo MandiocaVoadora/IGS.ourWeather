@@ -2,10 +2,8 @@ import { StatusBar } from "expo-status-bar";
 import React from "react";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 
-
-import useCachedResources from './hooks/useCachedResources';
-import useColorScheme from './hooks/useColorScheme';
-import { NextHours } from './components/NextHours';
+import useCachedResources from "./hooks/useCachedResources";
+import useColorScheme from "./hooks/useColorScheme";
 import { CurrentTemperature } from "./components/CurrentTemperature";
 
 import { useState } from "react";
@@ -29,14 +27,10 @@ export default function App() {
   } else {
     return (
       <SafeAreaProvider>
-
-      
         <TouchableOpacity style={stylesTest.refreshButton}>
           <EvilIcons name="refresh" size={45} />
-          
         </TouchableOpacity>
-          <CurrentTemperature />
-          
+        <CurrentTemperature />
         <TouchableOpacity
           style={stylesTest.refreshButton}
           onPress={() => getWeather().then((x) => setWeather(x))}
@@ -44,8 +38,8 @@ export default function App() {
           <EvilIcons name="refresh" size={45} />
         </TouchableOpacity>
         <CurrentTemperature
-          currentTemperature={weatherData?.weatherDegress.compoundValue}/>
-          <NextHours />
+          currentTemperature={weatherData?.weatherDegress.compoundValue}
+        />
       </SafeAreaProvider>
     );
   }
